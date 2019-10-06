@@ -3,7 +3,7 @@ Name: sshtoggle
 Depends: mobilesubstrate
 Version: 0.0.1
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
+Description: A MobileSubstrate tweak to start/stop SSH daemon
 Maintainer: Praseetha KR
-Author: Praseetha KR
+Author: Praseetha KR <praseetha04@gmail.com>
 Section: Tweaks
