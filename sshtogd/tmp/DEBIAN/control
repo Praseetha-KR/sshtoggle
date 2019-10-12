@@ -1,0 +1,10 @@
+Package: in.imagineer.sshtogd
+Name: sshtogd
+Architecture: iphoneos-arm
+Description: An awesome tool of some sort!!
+Maintainer: Praseetha KR <praseetha04@gmail.com>
+Author: Praseetha KR <praseetha04@gmail.com>
+Section: System
+Tag: role::hacker
+Version: 0.0.1
+Installed-Size: 200
