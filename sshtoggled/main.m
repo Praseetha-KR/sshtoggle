@@ -14,7 +14,7 @@ static void StopSSH(CFNotificationCenterRef center, void *observer, CFStringRef 
     [task launch];
     [task waitUntilExit];
 
-    NSLog(@"sshd togd stopped");
+    NSLog(@"sshd stopped");
 }
 
 static void StartSSH(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
@@ -28,11 +28,11 @@ static void StartSSH(CFNotificationCenterRef center, void *observer, CFStringRef
     [task launch];
     [task waitUntilExit];
 
-    NSLog(@"sshd togd started");
+    NSLog(@"sshd started");
 }
 
 int main(int argc, char *argv[], char *envp[]) {
-    NSLog(@"sshtog: sshtogd is launched!");
+    NSLog(@"sshtoggled is launched!");
 
 	CFNotificationCenterAddObserver(
         CFNotificationCenterGetDarwinNotifyCenter(),
