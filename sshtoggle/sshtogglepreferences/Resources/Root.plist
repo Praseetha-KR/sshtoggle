@@ -20,7 +20,7 @@
             <key>key</key>
             <string>isSSHEnabled</string>
             <key>PostNotification</key>
-            <string>in.imagineer.sshtogglepreferences/preferences.changed</string>
+            <string>in.imagineer.sshtogglepreferences/sshswitch.changed</string>
         </dict>
         <dict>
             <key>cell</key>

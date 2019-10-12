@@ -1,52 +1,56 @@
-#include <stdio.h>
-#include <string.h>
-#import <notify.h>
 #import "NSTask.h"
 
-static void StopSSH(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+
+static void startSSH(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
     NSTask *task = [[NSTask alloc] init];
-    NSMutableArray *args = [[NSMutableArray alloc] init];
     [task setLaunchPath:@"/bin/sh"];
-    [args addObject:@"-c"];
-    [args addObject:@"/usr/bin/sudo /bin/launchctl unload /Library/LaunchDaemons/com.openssh.sshd.plist"];
-    [task setArguments:args];
+    [task setArguments:
+        [NSArray arrayWithObjects:
+            @"-c",
+            @"/usr/bin/sudo /bin/launchctl load -w /Library/LaunchDaemons/com.openssh.sshd.plist",
+            nil
+        ]
+    ];
     [task launch];
     [task waitUntilExit];
 
-    NSLog(@"sshd stopped");
+    NSLog(@"com.openssh.sshd loaded");
 }
 
-static void StartSSH(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+static void stopSSH(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
     NSTask *task = [[NSTask alloc] init];
-    NSMutableArray *args = [[NSMutableArray alloc] init];
     [task setLaunchPath:@"/bin/sh"];
-    [args addObject:@"-c"];
-    [args addObject:@"/usr/bin/sudo /bin/launchctl load -w /Library/LaunchDaemons/com.openssh.sshd.plist"];
-    [task setArguments:args];
+    [task setArguments:
+        [NSArray arrayWithObjects:
+            @"-c",
+            @"/usr/bin/sudo /bin/launchctl unload /Library/LaunchDaemons/com.openssh.sshd.plist",
+            nil
+        ]
+    ];
     [task launch];
     [task waitUntilExit];
 
-    NSLog(@"sshd started");
+    NSLog(@"com.openssh.sshd unnloaded");
 }
 
 int main(int argc, char *argv[], char *envp[]) {
     NSLog(@"sshtoggled is launched!");
 
-	CFNotificationCenterAddObserver(
+    CFNotificationCenterAddObserver(
         CFNotificationCenterGetDarwinNotifyCenter(),
-        NULL, StartSSH,
-        CFSTR("in.imagineer.sshtogglepreferences/preferences.ssh.on"),
+        NULL, startSSH,
+        CFSTR("in.imagineer.sshtogglepreferences/sshswitch.on"),
         NULL, CFNotificationSuspensionBehaviorCoalesce
     );
     CFNotificationCenterAddObserver(
         CFNotificationCenterGetDarwinNotifyCenter(),
-        NULL, StopSSH,
-        CFSTR("in.imagineer.sshtogglepreferences/preferences.ssh.off"),
+        NULL, stopSSH,
+        CFSTR("in.imagineer.sshtogglepreferences/sshswitch.off"),
         NULL, CFNotificationSuspensionBehaviorCoalesce
     );
 
-	CFRunLoopRun(); // keep it running in background
-	return 0;
+    CFRunLoopRun(); // keep it running in background
+    return 0;
 }
