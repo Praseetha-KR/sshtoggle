@@ -2,11 +2,11 @@
 set -eux
 
 cd sshtoggled
-make package FINALPACKAGE=1
+make package
 cd ..
 
 cd sshtoggle
-make package install
+make package
 cd ..
 
 echo "Done!"
