@@ -12,21 +12,9 @@
 
 ### Install
 
-Get the latest version from [releases](https://github.com/Praseetha-KR/sshtoggle/releases) page
+[sshtoggle](https://cgvi.github.io/cydia-repo/depiction/in.imagineer.sshtoggle/) package is available in Cydia via [CGVI repo](https://cgvi.github.io/cydia-repo).
 
-```zsh
-$ ssh root@<device_ip>
-
-curl -sSL https://github.com/Praseetha-KR/sshtoggle/releases/download/0.0.4/in.imagineer.sshtoggle_0.0.4_iphoneos-arm.deb?raw=true -O
-
-dpkg -i in.imagineer.sshtoggle_0.0.4_iphoneos-arm.deb\?raw\=true
-
-launchctl load -w /Library/LaunchDaemons/in.imagineer.sshtoggled.plist
-
-killall -9 backboardd
-```
-
-Now SSH Toggle settings will appear in iOS Settings. You can turn OFF/ON the SSH service.
+Once installed, SSH Toggle settings will appear in iOS Settings. You can turn OFF/ON the SSH service.
 
 | Settings  | SSH toggle |
 |-----------|------------|
