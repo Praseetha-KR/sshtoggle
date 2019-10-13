@@ -1,8 +1,8 @@
 Package: in.imagineer.sshtoggle
 Name: sshtoggle
 Pre-Depends:
-Depends: mobilesubstrate, in.imagineer.sshtoggled
-Version: 0.0.3
+Depends: mobilesubstrate
+Version: 0.0.4
 Architecture: iphoneos-arm
 Description: A tweak to start/stop SSH daemon
 Maintainer: Praseetha KR <praseetha04@gmail.com>

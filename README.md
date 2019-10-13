@@ -12,25 +12,16 @@
 
 ### Install
 
-`sshtoggle` tweak also has `sshtoggled` daemon dependency.
+Get the latest version from [releases](https://github.com/Praseetha-KR/sshtoggle/releases) page
 
-Get the latest version for both tweak & daemon from the [releases](https://github.com/Praseetha-KR/sshtoggle/releases) page
-
-```bash
+```zsh
 $ ssh root@<device_ip>
 
-# daemon
-curl -sSL https://github.com/Praseetha-KR/sshtoggle/releases/download/0.0.2/in.imagineer.sshtoggled_0.0.2_iphoneos-arm.deb?raw=true -O
+curl -sSL https://github.com/Praseetha-KR/sshtoggle/releases/download/0.0.4/in.imagineer.sshtoggle_0.0.4_iphoneos-arm.deb?raw=true -O
 
-dpkg -i in.imagineer.sshtoggled_0.0.2_iphoneos-arm.deb\?raw\=true
+dpkg -i in.imagineer.sshtoggle_0.0.4_iphoneos-arm.deb\?raw\=true
 
 launchctl load -w /Library/LaunchDaemons/in.imagineer.sshtoggled.plist
-
-
-# tweak
-curl -sSL https://github.com/Praseetha-KR/sshtoggle/releases/download/0.0.2/in.imagineer.sshtoggle_0.0.2_iphoneos-arm.deb?raw=true -O
-
-dpkg -i in.imagineer.sshtoggle_0.0.2_iphoneos-arm.deb\?raw\=true
 
 killall -9 backboardd
 ```

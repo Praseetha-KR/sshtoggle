@@ -1,4 +1,4 @@
-#import "NSTask.h"
+#import "../NSTask.h"
 
 
 static void startSSH(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
