@@ -1,9 +1,0 @@
-Package: in.imagineer.sshtoggled
-Name: sshtoggled
-Version: 0.0.3
-Architecture: iphoneos-arm
-Description: A daemon to control sshd
-Maintainer: Praseetha KR <praseetha04@gmail.com>
-Author: Praseetha KR <praseetha04@gmail.com>
-Section: System
-Tag: role::hacker
